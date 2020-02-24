@@ -1,6 +1,6 @@
 {
   "name": "peperomia-util",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "build/index.js",
   "tyeps": "build/index.d.ts",
@@ -29,5 +29,13 @@
     "jest": "^24.1.0",
     "prettier": "^1.19.1",
     "ts-jest": "^25.2.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wheatandcat/peperomia-util.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wheatandcat/peperomia-util/issues"
+  },
+  "homepage": "https://github.com/wheatandcat/peperomia-util"
 }
