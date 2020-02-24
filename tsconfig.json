@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "jsx": "react",
+    "baseUrl": "./",
+    "lib": [
+      "es6",
+      "dom"
+    ],
+    "esModuleInterop": true,
+    "typeRoots": [
+      "node_modules/@types",
+    ],
+    "strict": true,
+    "declaration":true,
+    "skipLibCheck": true,
+    "outDir": "./build/"
+  },
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
