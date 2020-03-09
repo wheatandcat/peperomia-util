@@ -1,6 +1,6 @@
 {
   "name": "peperomia-util",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "",
   "main": "build/index.js",
   "tyeps": "build/index.d.ts",
@@ -12,6 +12,8 @@
   "author": "wheatandcat",
   "license": "MIT",
   "dependencies": {
+    "dayjs": "^1.8.22",
+    "firebase": "^7.10.0",
     "typescript": "^3.8.2"
   },
   "devDependencies": {
