@@ -1,6 +1,6 @@
-import * as firebase from 'firebase/app'
+import firebase from 'firebase'
 
-type Item = {
+export type Item = {
   id: string
   uid: string
   title: string

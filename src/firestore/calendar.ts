@@ -1,4 +1,4 @@
-import * as firebase from 'firebase/app'
+import firebase from 'firebase'
 import dayjs from 'dayjs'
 import advancedFormat from 'dayjs/plugin/advancedFormat'
 import 'dayjs/locale/ja'
@@ -23,11 +23,11 @@ export const findByUID = async (
     .where('uid', '==', uid)
     .get()
 
-  const records: any = qs.docs.map(elem => {
+  const records = qs.docs.map(elem => {
     return elem.data()
   })
 
-  return records.map((record: any) => ({
+  return records.map(record => ({
     ...record,
     date: dayjs(record.date.seconds * 1000).format('YYYY-MM-DD'),
   })) as Calendar[]

@@ -8,3 +8,9 @@
 $ yarn
 $ yarn tsc
 ```
+
+### 公開
+
+```
+$ npm publish
+```

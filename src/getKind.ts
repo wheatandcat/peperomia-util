@@ -49,15 +49,17 @@ const color = {
   category10: theme().color.lightGray,
 }
 
-type Kinds = {
-  [key: string]: {
+export type Kind = {
+  src: string
+  reversal: {
     src: string
-    reversal: {
-      src: string
-    }
-    name: string
-    backgroundColor: string
   }
+  name: string
+  backgroundColor: string
+}
+
+export type Kinds = {
+  [key: string]: Kind
 }
 
 export const KINDS: Kinds = {
