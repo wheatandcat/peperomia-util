@@ -1,6 +1,6 @@
 {
   "name": "peperomia-util",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "",
   "main": "build/index.js",
   "tyeps": "build/index.d.ts",

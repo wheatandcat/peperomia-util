@@ -1,32 +1,32 @@
-import firebase from 'firebase'
+import firebase from 'firebase';
 
 export type ItemDetail = {
-  id?: string
-  itemId: string
-  title: string
-  kind: string
-  memo: string
-  place: string
-  url: string
-  moveMinutes: number
-  priority: number
-  uid: string
-}
+  id?: string;
+  itemId: string;
+  title: string;
+  kind: string;
+  memo: string;
+  place: string;
+  url: string;
+  moveMinutes: number;
+  priority: number;
+  uid: string;
+};
 
-const collectionName = 'itemDetails'
+const collectionName = 'itemDetails';
 
 export const findByUID = async (
   db: firebase.firestore.Firestore,
   uid: string
 ): Promise<ItemDetail[]> => {
-  const qs = await db.collection(collectionName).where('uid', '==', uid).get()
+  const qs = await db.collection(collectionName).where('uid', '==', uid).get();
 
   const records = qs.docs.map((elem) => {
-    return elem.data()
-  })
+    return elem.data();
+  });
 
-  return records as ItemDetail[]
-}
+  return records as ItemDetail[];
+};
 
 export const findByItemID = async (
   db: firebase.firestore.Firestore,
@@ -38,14 +38,14 @@ export const findByItemID = async (
     .where('uid', '==', uid)
     .where('itemId', '==', itemID)
     .orderBy('priority', 'asc')
-    .get()
+    .get();
 
   const records = qs.docs.map((elem) => {
-    return elem.data()
-  })
+    return elem.data();
+  });
 
-  return records as ItemDetail[]
-}
+  return records as ItemDetail[];
+};
 
 export const countByItemID = async (
   db: firebase.firestore.Firestore,
@@ -57,10 +57,10 @@ export const countByItemID = async (
     .where('uid', '==', uid)
     .where('itemId', '==', itemID)
     .orderBy('priority')
-    .get()
+    .get();
 
-  return qs.size
-}
+  return qs.size;
+};
 
 export const findByID = async (
   db: firebase.firestore.Firestore,
@@ -72,11 +72,11 @@ export const findByID = async (
     .where('uid', '==', uid)
     .where('id', '==', id)
     .limit(1)
-    .get()
+    .get();
 
   const records = qs.docs.map((elem) => {
-    return elem.data()
-  })
+    return elem.data();
+  });
 
-  return records[0] as ItemDetail
-}
+  return records[0] as ItemDetail;
+};

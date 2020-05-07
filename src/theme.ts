@@ -1,29 +1,29 @@
 type ThemeColor = {
   color: {
-    beige: string
-    blue: string
-    darkGray: string
-    dodgerBlue: string
-    gray: string
-    lightBlue: string
-    lightEmerald: string
-    lightGray: string
-    highLightGray: string
-    lightGreen: string
-    lightNavy: string
-    lightOrange: string
-    lightPink: string
-    lightRed: string
-    lightYellow: string
-    white: string
-    pink: string
-    main: string
-    red: string
-    sky: string
-    yellow: string
-    black: string
-  }
-}
+    beige: string;
+    blue: string;
+    darkGray: string;
+    dodgerBlue: string;
+    gray: string;
+    lightBlue: string;
+    lightEmerald: string;
+    lightGray: string;
+    highLightGray: string;
+    lightGreen: string;
+    lightNavy: string;
+    lightOrange: string;
+    lightPink: string;
+    lightRed: string;
+    lightYellow: string;
+    white: string;
+    pink: string;
+    main: string;
+    red: string;
+    sky: string;
+    yellow: string;
+    black: string;
+  };
+};
 
 const baseColor = {
   beige: '#E4E4C8',
@@ -48,12 +48,12 @@ const baseColor = {
   sky: '#00C2ED',
   yellow: '#f8e58c',
   black: '#333631',
-}
+};
 
 const getTheme = (): ThemeColor => {
   return {
     color: baseColor,
-  }
-}
+  };
+};
 
-export default getTheme
+export default getTheme;

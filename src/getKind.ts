@@ -1,40 +1,40 @@
-import theme from './theme'
-import config from './configItem'
+import theme from './theme';
+import config from './configItem';
 
-export const KIND_FISHING = 'fishing'
-export const KIND_LUNCH = 'lunch'
-export const KIND_AMUSEMENT_PARK = 'amusement_park'
-export const KIND_PARK = 'park'
-export const KIND_ART_MUSEUM = 'art_museum'
-export const KIND_HOTEL = 'hotel'
-export const KIND_HOME = 'home'
-export const KIND_AQUARIUM = 'aquarium'
-export const KIND_DEFAULT = 'default'
-export const KIND_CASTLE = 'castle'
-export const KIND_ZOO = 'zoo'
-export const KIND_COFFEE = 'coffee'
-export const KIND_SHOP = 'shop'
-export const KIND_TRAIN = 'train'
-export const KIND_MOVIE = 'movie'
-export const KIND_BEACH = 'beach'
-export const KIND_CHERRY_BLOSSOM = 'cherry_blossom'
-export const KIND_SHIP = 'ship'
-export const KIND_HOT_SPRINGS = 'hot_springs'
-export const KIND_FIREWORKS = 'fireworks'
-export const KIND_MOUNTAIN = 'mountain'
-export const KIND_CAR = 'car'
-export const KIND_BAND = 'band'
+export const KIND_FISHING = 'fishing';
+export const KIND_LUNCH = 'lunch';
+export const KIND_AMUSEMENT_PARK = 'amusement_park';
+export const KIND_PARK = 'park';
+export const KIND_ART_MUSEUM = 'art_museum';
+export const KIND_HOTEL = 'hotel';
+export const KIND_HOME = 'home';
+export const KIND_AQUARIUM = 'aquarium';
+export const KIND_DEFAULT = 'default';
+export const KIND_CASTLE = 'castle';
+export const KIND_ZOO = 'zoo';
+export const KIND_COFFEE = 'coffee';
+export const KIND_SHOP = 'shop';
+export const KIND_TRAIN = 'train';
+export const KIND_MOVIE = 'movie';
+export const KIND_BEACH = 'beach';
+export const KIND_CHERRY_BLOSSOM = 'cherry_blossom';
+export const KIND_SHIP = 'ship';
+export const KIND_HOT_SPRINGS = 'hot_springs';
+export const KIND_FIREWORKS = 'fireworks';
+export const KIND_MOUNTAIN = 'mountain';
+export const KIND_CAR = 'car';
+export const KIND_BAND = 'band';
 
 const host =
-  'https://firebasestorage.googleapis.com/v0/b/peperomia-196da.appspot.com/'
+  'https://firebasestorage.googleapis.com/v0/b/peperomia-196da.appspot.com/';
 
 const fileUrl = (file: string, token: string): string => {
-  return `${host}o/v2%2F${file}.png?alt=media&token=${token}`
-}
+  return `${host}o/v2%2F${file}.png?alt=media&token=${token}`;
+};
 
 const reverFileUrl = (file: string, token: string): string => {
-  return `${host}o/v2%2Fdark%2F${file}.png?alt=media&token=${token}`
-}
+  return `${host}o/v2%2Fdark%2F${file}.png?alt=media&token=${token}`;
+};
 
 const color = {
   category01: theme().color.lightBlue,
@@ -47,20 +47,20 @@ const color = {
   category08: theme().color.lightNavy,
   category09: theme().color.dodgerBlue,
   category10: theme().color.lightGray,
-}
+};
 
 export type Kind = {
-  src: string
+  src: string;
   reversal: {
-    src: string
-  }
-  name: string
-  backgroundColor: string
-}
+    src: string;
+  };
+  name: string;
+  backgroundColor: string;
+};
 
 export type Kinds = {
-  [key: string]: Kind
-}
+  [key: string]: Kind;
+};
 
 export const KINDS: Kinds = {
   [KIND_FISHING]: {
@@ -247,25 +247,25 @@ export const KINDS: Kinds = {
     name: '地球',
     backgroundColor: color.category10,
   },
-}
+};
 
 export default (keyword: string): string => {
   if (!keyword) {
-    return KIND_DEFAULT
+    return KIND_DEFAULT;
   }
 
-  const keys = Object.keys(config)
+  const keys = Object.keys(config);
 
   let result = keys.map((key) => {
-    const items = config[key]
+    const items = config[key];
 
     return {
       kind: key,
       score: items
         .filter((item: string) => keyword.indexOf(item) !== -1)
         .join('').length,
-    }
-  })
+    };
+  });
 
   result = [
     ...result,
@@ -273,12 +273,12 @@ export default (keyword: string): string => {
       kind: KIND_DEFAULT,
       score: 1,
     },
-  ]
+  ];
 
-  const scores = result.map((item) => item.score)
-  const maxScore = Math.max(...scores)
+  const scores = result.map((item) => item.score);
+  const maxScore = Math.max(...scores);
 
-  const maxItem = result.find((item) => item.score === maxScore)
+  const maxItem = result.find((item) => item.score === maxScore);
 
-  return maxItem?.kind || KIND_DEFAULT
-}
+  return maxItem?.kind || KIND_DEFAULT;
+};

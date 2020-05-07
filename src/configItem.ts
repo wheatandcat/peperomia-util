@@ -1,6 +1,6 @@
 type Config = {
-  [key: string]: string[]
-}
+  [key: string]: string[];
+};
 
 /* eslint-disable @typescript-eslint/camelcase */
 const config: Config = {
@@ -72,6 +72,6 @@ const config: Config = {
   mountain: ['山'],
   car: ['車', 'タクシー'],
   band: ['ロック', '音楽', 'バンド', 'ライブ'],
-}
+};
 
-export default config
+export default config;

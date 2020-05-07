@@ -1,13 +1,13 @@
-import firebase from 'firebase'
+import firebase from 'firebase';
 
 export type Item = {
-  id: string
-  uid: string
-  title: string
-  kind: string
-}
+  id: string;
+  uid: string;
+  title: string;
+  kind: string;
+};
 
-const collectionName = 'items'
+const collectionName = 'items';
 
 export const findByUID = async (
   db: firebase.firestore.Firestore,
@@ -17,14 +17,14 @@ export const findByUID = async (
     .collection(collectionName)
     .where('uid', '==', uid)
     .orderBy('createdAt', 'desc')
-    .get()
+    .get();
 
   const records = qs.docs.map((elem) => {
-    return elem.data()
-  })
+    return elem.data();
+  });
 
-  return records as Item[]
-}
+  return records as Item[];
+};
 
 export const findByID = async (
   db: firebase.firestore.Firestore,
@@ -36,14 +36,14 @@ export const findByID = async (
     .where('uid', '==', uid)
     .where('id', '==', id)
     .limit(1)
-    .get()
+    .get();
 
   const records = qs.docs.map((elem) => {
-    return elem.data()
-  })
+    return elem.data();
+  });
 
-  return records[0] as Item
-}
+  return records[0] as Item;
+};
 
 export const findInID = async (
   db: firebase.firestore.Firestore,
@@ -54,11 +54,11 @@ export const findInID = async (
     .collection(collectionName)
     .where('uid', '==', uid)
     .where('id', 'in', idList)
-    .get()
+    .get();
 
   const records = qs.docs.map((elem) => {
-    return elem.data()
-  })
+    return elem.data();
+  });
 
-  return records as Item[]
-}
+  return records as Item[];
+};

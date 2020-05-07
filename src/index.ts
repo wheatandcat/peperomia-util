@@ -23,7 +23,9 @@ import getKind, {
   KIND_MOUNTAIN,
   KIND_CAR,
   KIND_BAND,
-} from './getKind'
+} from './getKind';
+
+import { post } from './fetch';
 
 export {
   getKind,
@@ -51,4 +53,5 @@ export {
   KIND_MOUNTAIN,
   KIND_CAR,
   KIND_BAND,
-}
+  post,
+};
